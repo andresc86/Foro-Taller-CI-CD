@@ -19,8 +19,13 @@ function getUser(req, res) {
 }
 
 function addUser(req, res) {
-    const newUser = createUser(req.body);
-    res.status(201).json(newUser);
+    const result = createUser(req.body);
+
+    if (result.error) {
+        return res.status(result.code).json({ message: result.error });
+    }
+
+    return res.status(201).json(result.user);
 }
 
 function editUser(req, res) {
@@ -44,3 +49,4 @@ module.exports = {
     editUser,
     removeUser
 };
+
