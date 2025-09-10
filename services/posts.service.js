@@ -3,9 +3,16 @@ const { readDB, writeDB } = require('../db/db');
 function createPost(data) {
     const db = readDB();
 
-    // validar usuario
+    // Validar campos obligatorios
+    if (!data.title || !data.content) {
+        return { error: 'El título y el contenido son obligatorios', code: 400 };
+    }
+
+    // Validar usuario
     const userExists = db.users.find(u => u.id === data.userId);
-    if (!userExists) throw new Error('El usuario no existe');
+    if (!userExists) {
+        return { error: 'Usuario no encontrado', code: 404 };
+    }
 
     const newPost = {
         id: db.posts.length > 0 ? Math.max(...db.posts.map(p => p.id)) + 1 : 1,
@@ -16,14 +23,13 @@ function createPost(data) {
 
     db.posts.push(newPost);
     writeDB(db);
+
     return newPost;
 }
-function addPost(req, res, next) {
-  try {
-    const newPost = createPost(req.body);
-    res.status(201).json(newPost);
-  } catch (error) {
-    next(error);
-  }
-}
+
+module.exports = {
+    createPost
+    // aquí también irían getAllPosts, getPostById, updatePost, deletePost
+};
+
 

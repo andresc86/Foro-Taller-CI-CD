@@ -12,16 +12,32 @@ function getUserById(id) {
 
 function createUser(data) {
     const db = readDB();
+
+    // Validar campos obligatorios
+    if (!data.name || !data.email || !data.password) {
+        return { error: "Faltan campos obligatorios: name, email y password", code: 400 };
+    }
+
+    // Validar si el email ya existe
+    const emailExists = db.users.some(u => u.email === data.email);
+    if (emailExists) {
+        return { error: "El email ya está en uso", code: 409 };
+    }
+
+    // Crear el nuevo usuario
     const newUser = {
         id: db.users.length > 0 ? Math.max(...db.users.map(u => u.id)) + 1 : 1,
         name: data.name,
         email: data.email,
         password: data.password // ⚠️ En producción se debe hashear
     };
+
     db.users.push(newUser);
     writeDB(db);
-    return newUser;
+
+    return { user: newUser, code: 201 };
 }
+
 
 function updateUser(id, data) {
     const db = readDB();
