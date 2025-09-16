@@ -27,4 +27,12 @@ describe('User Service', () => {
     expect(users.length).toBe(1);
     expect(users[0].name).toBe('Alice');
   });
+
+  test('debería crear usuario con ID 1 si la base está vacía', () => {
+    readDB.mockReturnValueOnce({ users: [] });
+    const user = createUser({ name: 'Carlos', email: 'c@c.com', password: '789' });
+    expect(user.id).toBe(1);
+    expect(user.name).toBe('Carlos');
+    expect(writeDB).toHaveBeenCalled();
+  });
 });

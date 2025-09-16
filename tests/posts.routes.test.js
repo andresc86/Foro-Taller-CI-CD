@@ -39,7 +39,12 @@ describe('Posts API', () => {
     expect(res.statusCode).toBe(400);
     expect(res.body.message).toBe('Faltan campos obligatorios');
   });
-});
-afterAll(done => {
-  done();
+
+  test('POST /api/posts falla si el título está vacío', async () => {
+    const badPost = { title: '', content: 'Sin título', userId: 1 };
+    const res = await request(app)
+      .post('/api/posts')
+      .send(badPost);
+    expect(res.statusCode).toBe(400);
+  });
 });
