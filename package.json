@@ -1,12 +1,28 @@
 {
   "name": "api",
   "version": "1.0.0",
+  "description": "API en Express",
   "main": "index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "node index.js",
+    "start:prod": "NODE_ENV=production node index.js",
     "dev": "nodemon index.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "echo \"No lint configured\" && exit 0",
+    "build": "echo \"No build step required for this backend\"",
+    "prepare": "echo \"prepare script: add frontend build here if needed\"",
+    "heroku-postbuild": "echo \"heroku postbuild: configure if you add a frontend\""
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andresc86/Foro-Taller-CI-CD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2"
