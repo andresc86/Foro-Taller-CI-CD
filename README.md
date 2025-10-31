@@ -63,3 +63,9 @@ curl -X POST https://foro-taller-ci-cd-1.onrender.com/api/posts \
   "userId": 1
 }
 ```
+## 📈 Gestión del Proyecto (SCRUM)
+Este proyecto sigue la metodología ágil SCRUM utilizando GitHub Projects como tablero Kanban.
+
+- [Ver Tablero SCRUM](https://github.com/andresc86/Foro-Taller-CI-CD/projects)
+- [Ver Issues del Proyecto](https://github.com/andresc86/Foro-Taller-CI-CD/issues)
+- [Ver Commits](https://github.com/andresc86/Foro-Taller-CI-CD/commits/main)
