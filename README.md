@@ -17,7 +17,9 @@ Este proyecto es una API construida con **Node.js + Express** que gestiona posts
 - [https://6904b550ebd8380008eb2efb--foro-taller-ci-cd.netlify.app](https://6904b550ebd8380008eb2efb--foro-taller-ci-cd.netlify.app)
 
 ## Evidencia del deploy
-(./evidencias/netiflyDeploy.png)
+| ![Vista principal](./evidencias/sitio.png) 
+| ![Panel de Netlify](./evidencias/netlify.png) 
+| ![Log de build](./evidencias/deploy.png)
 
 ## Instalación y ejecución
 1. Clona el repositorio:
