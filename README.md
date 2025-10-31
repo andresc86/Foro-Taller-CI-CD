@@ -11,6 +11,14 @@ Este proyecto es una API construida con **Node.js + Express** que gestiona posts
 - Pruebas unitarias y de integración con **Jest + Supertest**
 - Pipelines CI/CD con **GitHub Actions**
 
+## Netifly
+- [https://app.netlify.com/projects/foro-taller-ci-cd/deploys/6904b550ebd8380008eb2efb](https://app.netlify.com/projects/foro-taller-ci-cd/deploys/6904b550ebd8380008eb2efb)
+
+- [https://6904b550ebd8380008eb2efb--foro-taller-ci-cd.netlify.app](https://6904b550ebd8380008eb2efb--foro-taller-ci-cd.netlify.app)
+
+## Evidencia del deploy
+(./evidencias/netiflyDeploy.png)
+
 ## Instalación y ejecución
 1. Clona el repositorio:
    ```bash
